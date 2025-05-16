@@ -33,29 +33,3 @@ models/
 ├── metricas_por_usuario.sql         # Agregações por usuário (compras, receita, ticket)
 ├── metricas_usuario_ltv.sql         # LTV e dias de relacionamento por cliente
 
-📁 Tabelas criadas no BigQuery
-Tabela	Descrição	Particionada?	Clusterizada?
-trusted_data.metricas_por_campanha	Métricas por campanha e plataforma	✅ data	✅ campanha, plataforma
-trusted_data.metricas_por_usuario	Agregações por usuário	✅ data_primeira_compra	✅ user_id
-trusted_data.metricas_usuario_ltv	LTV e tempo de vida do cliente	✅ data_ultima_compra	✅ user_id
-
-🛠️ Como executar
-Este projeto foi desenvolvido e executado diretamente no dbt Cloud, com agendamento e versionamento via GitHub.
-
-Para rodar localmente com dbt Core:
-# Clone o repositório
-git clone https://github.com/sarasantanadev/dbt-analytics.git
-cd dbt-analytics
-
-# Configure o profiles.yml com as credenciais do BigQuery
-
-# Instale os pacotes
-dbt deps
-
-# Execute os modelos
-dbt run
-
-# Gere a documentação (opcional)
-dbt docs generate
-dbt docs serve
-
