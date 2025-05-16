@@ -85,6 +85,6 @@ dbt docs serve
 ## 👩🏽‍💻 Desenvolvido por
 
 **Sara Santana**  
-Engenheira de Dados | dbt | BigQuery | GCP | Airflow
+Engenheira de Dados | dbt | BigQuery | GCP | Airflow 
 [🔗 LinkedIn](https://(https://www.linkedin.com/in/santana-sara/)/)  
 [🐙 GitHub](https://(https://github.com/santtanasara))
