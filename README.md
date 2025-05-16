@@ -29,46 +29,33 @@ Transformar dados brutos de eventos e perfis de usuários em insights acionávei
 
 ```plaintext
 models/
-│
 ├── metricas_por_campanha.sql        # ROAS e CPA por data, campanha e plataforma
 ├── metricas_por_usuario.sql         # Agregações por usuário (compras, receita, ticket)
 ├── metricas_usuario_ltv.sql         # LTV e dias de relacionamento por cliente
 
----
+📁 Tabelas criadas no BigQuery
+Tabela	Descrição	Particionada?	Clusterizada?
+trusted_data.metricas_por_campanha	Métricas por campanha e plataforma	✅ data	✅ campanha, plataforma
+trusted_data.metricas_por_usuario	Agregações por usuário	✅ data_primeira_compra	✅ user_id
+trusted_data.metricas_usuario_ltv	LTV e tempo de vida do cliente	✅ data_ultima_compra	✅ user_id
 
-## 📁 Tabelas criadas no BigQuery
-|Tabela	                             |Descrição	                          |Particionada?	            |Clusterizada?
-|trusted_data.metricas_por_campanha	 |Métricas por campanha e plataforma	|✅ data	                  |✅ campanha, plataforma
-|trusted_data.metricas_por_usuario	 |Agregações por usuário	            |✅ data_primeira_compra	  |✅ user_id
-|trusted_data.metricas_usuario_ltv	 |LTV e tempo de vida do cliente	    |✅ data_ultima_compra	    |✅ user_id
+🛠️ Como executar
+Este projeto foi desenvolvido e executado diretamente no dbt Cloud, com agendamento e versionamento via GitHub.
 
-## 🛠️ Como executar
-Esse projeto foi desenvolvido e executado diretamente no dbt Cloud com agendamentos e versionamento GitHub.
+Para rodar localmente com dbt Core:
+# Clone o repositório
+git clone https://github.com/sarasantanadev/dbt-analytics.git
+cd dbt-analytics
 
-Para rodar localmente com o dbt Core:
+# Configure o profiles.yml com as credenciais do BigQuery
 
-1.Clone o repositório:
-- git clone https://github.com/sarasantanadev/dbt-analytics.git
-- cd dbt-analytics
+# Instale os pacotes
+dbt deps
 
-2.Configure seu profiles.yml com as credenciais do BigQuery
+# Execute os modelos
+dbt run
 
-3.Instale os pacotes:
-- dbt deps
+# Gere a documentação (opcional)
+dbt docs generate
+dbt docs serve
 
-4.Execute os modelos:
-- dbt run
-
-5.Gere a documentação (opcional):
-- dbt docs generate
-- dbt docs serve
-
----------------------------
-
-## 👩🏽‍💻 Desenvolvido por
-
-**Sara Santana**  
-Engenheira de Dados | dbt | BigQuery | GCP  
-[🔗 LinkedIn](https://www.linkedin.com/in/sarasantanadev/)  
-[🐙 GitHub](https://github.com/sarasantanadev)
-----------------------------
