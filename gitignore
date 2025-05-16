@@ -1,0 +1,11 @@
+# .gitignore
+# Este arquivo instrui o Git a ignorar arquivos/pastas durante o versionamento.
+
+# Pastas geradas pelo dbt ao compilar ou executar modelos
+dbt_modules/
+target/
+dbt_packages/
+
+# Arquivos locais de configuração
+profiles.yml
+.env
